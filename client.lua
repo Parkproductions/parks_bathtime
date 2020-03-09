@@ -22,6 +22,39 @@ function whenKeyJustPressed(key)
 end
 
 
+local function IsNearZone ( location )
+
+    local player = PlayerPedId()
+    local playerloc = GetEntityCoords(player, 0)
+
+    for i = 1, #location do
+        if #(playerloc - location[i]) < 1.0 then
+            return true, i
+        end
+    end
+
+end
+
+
+Citizen.CreateThread(function()
+    while true do
+
+        local IsZone, IdZone = IsNearZone( Config.Coords )
+
+        if IsZone then
+            DisplayHelp(Config.Bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
+            --[[if IsControlJustReleased(0, keys['E']) then
+                WarMenu.OpenMenu('id_Horse')
+                CurrentZoneActive = IdZone
+            end--]]
+        end
+
+    end
+
+end)
+
+
+
 function DisplayHelp(_message, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
  local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", _message, Citizen.ResultAsLong())
     SetTextScale(w, h)
