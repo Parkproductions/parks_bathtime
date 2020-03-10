@@ -52,7 +52,7 @@ local function DisplayHelp( _message, x, y, w, h, enableShadow, col1, col2, col3
 end
 
 Citizen.CreateThread(function()
-    while true do
+    
 
         local IsZone, IdZone = IsNearZone( Config.Coords )
 
@@ -61,6 +61,6 @@ Citizen.CreateThread(function()
             
         end
 
-    end
+    
 
 end)
