@@ -1,3 +1,3 @@
 Config = {}
 
-Config.bathtext{'Press (E) for action with gun shop'}
+Config.bathtext = 'Press (E) for action with gun shop'
