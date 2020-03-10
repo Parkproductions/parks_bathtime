@@ -32,6 +32,25 @@ local function IsNearZone ( location )
 
 end
 
+local function DisplayHelp( _message, x, y, w, h, enableShadow, col1, col2, col3, a, centre )
+
+    local str = CreateVarString(10, "LITERAL_STRING", _message, Citizen.ResultAsLong())
+
+    SetTextScale(w, h)
+    SetTextColor(col1, col2, col3, a)
+
+    SetTextCentre(centre)
+
+    if enableShadow then
+        SetTextDropshadow(1, 0, 0, 0, 255)
+    end
+
+    Citizen.InvokeNative(0xADA9255D, 10);
+
+    DisplayText(str, x, y)
+
+end
+
 Citizen.CreateThread(function()
     while true do
 
