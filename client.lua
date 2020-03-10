@@ -18,3 +18,16 @@ function whenKeyJustPressed(key)
         return false
     end
 end
+
+local function IsNearZone ( location )
+
+    local player = PlayerPedId()
+    local playerloc = GetEntityCoords(player, 0)
+
+    for i = 1, #location do
+        if #(playerloc - location[i]) < 1.0 then
+            return true, i
+        end
+    end
+
+end
