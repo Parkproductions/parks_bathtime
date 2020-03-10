@@ -1,15 +1,8 @@
 local blips = {
 	{ name = 'Bath Tub', sprite = 662885764, x=-1812.73, y=-374.0, z=166.51 },
 }
- 
-Citizen.CreateThread(function()
-	for _, info in pairs(blips) do
-        local blip = N_0x554d9d53f696d002(662885764, info.x, info.y, info.z)
-        SetBlipSprite(blip, info.sprite, 1)
-		SetBlipScale(blip, 0.2)
-		Citizen.InvokeNative(0x9CB1A1623062F402, blip, info.name)
-    end  
-end)
+
+
 
 --------------------------------------------------------
 
@@ -42,7 +35,7 @@ Citizen.CreateThread(function()
         local IsZone, IdZone = IsNearZone( Config.Coords )
 
         if IsZone then
-            DisplayHelp(Config.Bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
+            DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
             --[[if IsControlJustReleased(0, keys['E']) then
                 WarMenu.OpenMenu('id_Horse')
                 CurrentZoneActive = IdZone
@@ -53,6 +46,55 @@ Citizen.CreateThread(function()
 
 end)
 
+local group
+local AddGangPrompt
+function AddGang()
+    Citizen.CreateThread(function()
+        local str = 'Take a Bath'
+        AddGangPrompt = PromptRegisterBegin()
+        PromptSetControlAction(AddGangPrompt, 0xC7B5340A)
+        str = CreateVarString(10, 'LITERAL_STRING', str)
+        PromptSetText(AddGangPrompt, str)
+        PromptSetEnabled(AddGangPrompt, true)
+        PromptSetVisible(AddGangPrompt, true)
+        PromptSetHoldMode(AddGangPrompt, true)
+        PromptSetGroup(AddGangPrompt, group)
+        PromptRegisterEnd(AddGangPrompt)
+ 
+    end)
+end
+ 
+local target = 0
+local active = false
+Citizen.CreateThread(function()
+    while true do
+        Wait(10)
+        local id, id2 = GetPlayerTargetEntity(PlayerId())
+        if id2 ~= 0 and id2 ~= nil then
+            target = id2
+            if active == false and IsPedAPlayer(target) and your_gang ~= nil and your_grade >=10 then
+                group = PromptGetGroupIdForTargetEntity(target)
+                AddGang()
+                active = true
+                print(group)
+            end
+            if PromptHasHoldModeCompleted(AddGangPrompt) then
+                local playerHandle = NetworkGetPlayerIndexFromPed(target)
+                if NetworkIsPlayerActive(playerHandle) then
+                    print("ADD")
+                    print(playerHandle)
+                    TriggerServerEvent('tor_gang:AddToGang', GetPlayerServerId(playerHandle) , your_gang)
+                    PromptDelete(AddGangPrompt)
+                end
+            end
+        else
+            Wait(200)
+            PromptDelete(AddGangPrompt)
+            active = false
+        end
+    end
+end)
+ 
 
 
 function DisplayHelp(_message, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
