@@ -1,5 +1,5 @@
 local blips = {
-	{ name = 'Bath Tub', sprite = 662885764, x=-1612.73, y=-374.0, z=166.51 },
+	{ name = 'Bath Tub', sprite = 662885764, x=-1812.73, y=-374.0, z=166.51 },
 }
  
 Citizen.CreateThread(function()
