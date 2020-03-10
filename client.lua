@@ -46,54 +46,7 @@ Citizen.CreateThread(function()
 
 end)
 
-local group
-local AddGangPrompt
-function AddGang()
-    Citizen.CreateThread(function()
-        local str = 'Take a Bath'
-        AddGangPrompt = PromptRegisterBegin()
-        PromptSetControlAction(AddGangPrompt, 0xC7B5340A)
-        str = CreateVarString(10, 'LITERAL_STRING', str)
-        PromptSetText(AddGangPrompt, str)
-        PromptSetEnabled(AddGangPrompt, true)
-        PromptSetVisible(AddGangPrompt, true)
-        PromptSetHoldMode(AddGangPrompt, true)
-        PromptSetGroup(AddGangPrompt, group)
-        PromptRegisterEnd(AddGangPrompt)
- 
-    end)
-end
- 
-local target = 0
-local active = false
-Citizen.CreateThread(function()
-    while true do
-        Wait(10)
-        local id, id2 = GetPlayerTargetEntity(PlayerId())
-        if id2 ~= 0 and id2 ~= nil then
-            target = id2
-            if active == false and IsPedAPlayer(target) and your_gang ~= nil and your_grade >=10 then
-                group = PromptGetGroupIdForTargetEntity(target)
-                AddGang()
-                active = true
-                print(group)
-            end
-            if PromptHasHoldModeCompleted(AddGangPrompt) then
-                local playerHandle = NetworkGetPlayerIndexFromPed(target)
-                if NetworkIsPlayerActive(playerHandle) then
-                    print("ADD")
-                    print(playerHandle)
-                    TriggerServerEvent('tor_gang:AddToGang', GetPlayerServerId(playerHandle) , your_gang)
-                    PromptDelete(AddGangPrompt)
-                end
-            end
-        else
-            Wait(200)
-            PromptDelete(AddGangPrompt)
-            active = false
-        end
-    end
-end)
+
  
 
 
