@@ -31,3 +31,17 @@ local function IsNearZone ( location )
     end
 
 end
+
+Citizen.CreateThread(function()
+    while true do
+
+        local IsZone, IdZone = IsNearZone( Config.Coords )
+
+        if IsZone then
+            DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
+            
+        end
+
+    end
+
+end)
