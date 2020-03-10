@@ -32,7 +32,7 @@ local function IsNearZone ( location )
 
 end
 
-Citizen.CreateThread(function()
+--[[Citizen.CreateThread(function()
     while true do
 
         local IsZone, IdZone = IsNearZone( Config.Coords )
@@ -44,4 +44,4 @@ Citizen.CreateThread(function()
 
     end
 
-end)
+end)--]]
