@@ -65,7 +65,7 @@ Citizen.CreateThread(function()
         if IsZone then
             --[[DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)--]]
             if IsControlJustReleased(0, keys['E']) then
-                DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
+                DisplayHelp(Config.button, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
             end
         end
  
