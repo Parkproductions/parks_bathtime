@@ -1,6 +1,12 @@
 local blips = {
 	{ name = 'Bath Tub', sprite = 662885764, x=-1812.73, y=-374.0, z=166.51 },
 }
+
+local keys = { ['G'] = 0x760A9C6F, ['S'] = 0xD27782E3, ['W'] = 0x8FD015D8, ['H'] = 0x24978A28, ['G'] = 0x5415BE48, ["ENTER"] = 0xC7B5340A, ['E'] = 0xDFF812F9 }
+
+local pressTime = 0
+local pressLeft = 0
+
  
 Citizen.CreateThread(function()
 	for _, info in pairs(blips) do
@@ -53,14 +59,31 @@ end
 
 Citizen.CreateThread(function()
     while true do
- Wait(10)
+    Wait(10)
         local IsZone, IdZone = IsNearZone( Config.Coords )
  
         if IsZone then
             DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
-           
+            if IsControlJustReleased(0, keys['E']) then
+                DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
+            end
         end
  
     end
  
 end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+--[[CreateStartEndScenarion("Pour", "Pour Bucket", GetHashKey("WORLD_PLAYER_CHORES_BUCKET_POUR_HIGH"), nil ,v[1].x, v[1].y, v[1].z, v[2], 0.5)
+            Function.Call(Hash._TASK_START_SCENARIO_IN_PLACE, API.PlayerPedId(), API.GetHashKey("WORLD_HUMAN_WASH_FACE_BUCKET_GROUND"), -1, true, false, false, false);--]]
