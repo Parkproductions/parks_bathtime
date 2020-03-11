@@ -65,7 +65,7 @@ Citizen.CreateThread(function()
         if IsZone then
             --[[DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)--]]
             if IsControlJustReleased(0, keys['E']) then
-                DisplayHelp(Config.button, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
+                CreateStartEndScenarion("Pour", "Pour Bucket", GetHashKey("WORLD_HUMAN_WASH_FACE_BUCKET_GROUND"), nil, true, false, false, false)
             end
         end
  
@@ -85,5 +85,5 @@ end)
 
 
 
---[[CreateStartEndScenarion("Pour", "Pour Bucket", GetHashKey("WORLD_PLAYER_CHORES_BUCKET_POUR_HIGH"), nil ,v[1].x, v[1].y, v[1].z, v[2], 0.5)
-            Function.Call(Hash._TASK_START_SCENARIO_IN_PLACE, API.PlayerPedId(), API.GetHashKey("WORLD_HUMAN_WASH_FACE_BUCKET_GROUND"), -1, true, false, false, false);--]]
+
+            --[[Function.Call(Hash._TASK_START_SCENARIO_IN_PLACE, API.PlayerPedId(), API.GetHashKey("WORLD_HUMAN_WASH_FACE_BUCKET_GROUND"), nil, true, false, false, false);--]]
