@@ -53,12 +53,12 @@ local function DisplayHelp( _message, x, y, w, h, enableShadow, col1, col2, col3
 
     Citizen.InvokeNative(0xADA9255D, 10);
 
-    if IsControlJustPressed(0, keys['E']) then
+    if IsPedUsingAnyScenario(PlayerPedId()) then
 
     else
         DisplayText(str, x, y)
     end
-    
+
 end
 
 Citizen.CreateThread(function()
