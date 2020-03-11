@@ -53,8 +53,12 @@ local function DisplayHelp( _message, x, y, w, h, enableShadow, col1, col2, col3
 
     Citizen.InvokeNative(0xADA9255D, 10);
 
-    DisplayText(str, x, y)
+    if IsControlJustPressed(0, keys['E']) then
 
+    else
+        DisplayText(str, x, y)
+    end
+    
 end
 
 Citizen.CreateThread(function()
@@ -65,6 +69,7 @@ Citizen.CreateThread(function()
         if IsZone then
             DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
             if IsControlJustPressed(0, keys['E']) then
+
                 TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_WASH_FACE_BUCKET_GROUND'), 10000, true, false, false, false)
             end
 
