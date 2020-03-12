@@ -76,7 +76,7 @@ Citizen.CreateThread(function()
             if IsControlJustPressed(0, keys['E']) then
                 
                 
-                    SetEntityCoords(player,  -1812,-373.21, 166.51, true, true, true, false)
+                    SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
                 
                     local dict = "mini_games@bathing@regular@arthur"
