@@ -63,106 +63,7 @@ local function DisplayHelp( _message, x, y, w, h, enableShadow, col1, col2, col3
 
 end
 
-YCD,C8A17841.ycd,mini_games@bathing@regular@arthur,
-pack:/left_arm_one_scrub_return_to_idle_face.clip,
-pack:/right_leg_finish_face.clip,
-pack:/right_arm_scrub_fastest_face.clip,
-pack:/left_leg_scrub_medium_face.clip,
-pack:/left_arm_scrub_medium_face.clip,
-pack:/left_leg_scrub_return_to_idle.clip,
-pack:/head_scrub_return_to_idle_face.clip,
-pack:/left_leg_scrub_return_to_idle_face.clip,
-pack:/right_arm_scrub_medium.clip,
-pack:/right_leg_scrub_fastest.clip,
-pack:/enter_scrub_left_arm_face.clip,
-pack:/head_scrub_return_to_idle.clip,
-pack:/right_leg_scrub_fast_face.clip,
-pack:/head_scrub_faster_loop_face.clip,
-pack:/enter_scrub_right_arm_face.clip,
-pack:/left_leg_scrub_slow_face.clip,
-pack:/head_scrub_faster_loop.clip,
-pack:/right_arm_scrub_return_to_idle_face.clip,
-pack:/enter_scrub_right_arm.clip,
-pack:/head_scrub_fast_loop_face.clip,
-pack:/right_arm_finish_face.clip,
-pack:/left_arm_scrub_slow_face.clip,
-pack:/enter_scrub_left_leg_face.clip,
-pack:/left_arm_scrub_fastest_face.clip,
-pack:/left_leg_scrub_fastest.clip,
-pack:/right_arm_scrub_medium_face.clip,
-pack:/right_arm_scrub_fast_face.clip,
-pack:/left_leg_scrub_fast_face.clip,
-pack:/right_arm_scrub_fastest.clip,
-pack:/right_arm_scrub_return_to_idle.clip,
-pack:/left_arm_scrub_medium.clip,
-pack:/exit_scrub_to_idle_face.clip,
-pack:/right_arm_scrub_slow_face.clip,
-pack:/enter_scrub_head_face.clip,
-pack:/enter_scrub_right_leg_face.clip,
-pack:/enter_scrub_right_leg.clip,
-pack:/right_leg_scrub_fastest_face.clip,
-pack:/right_leg_scrub_medium.clip,
-pack:/left_arm_scrub_fastest.clip,
-pack:/left_arm_scrub_fast_face.clip,
-pack:/right_leg_scrub_medium_face.clip,
-pack:/right_leg_scrub_return_to_idle.clip,
-pack:/left_arm_one_scrub_return_to_idle.clip,
-pack:/right_leg_scrub_return_to_idle_face.clip,
-pack:/left_leg_scrub_fastest_face.clip,
-pack:/left_leg_scrub_medium.clip,
-pack:/right_leg_scrub_slow_face.clip,
-pack:/head_scrub_slow_loop_face.clip,
-pack:/cinematic_q5@biped@0_6.anim,
-pack:/cinematic_q5@biped@0_1.anim,
-pack:/cinematic_q5@biped@0_3.anim,
-pack:/cinematic_q5@biped@0_8.anim,
-pack:/cinematic_q5@biped@0_7.anim,
-pack:/cinematic_q5@biped@0_5.anim,
-pack:/cinematic_q5@biped@0_4.anim,
-pack:/cinematic_q5@biped@0_2.anim,
-pack:/cinematic_q5@biped@0_0.anim,
-pack:/enter_scrub_left_leg.clip,
-pack:/right_arm_scrub_slow.clip,
-pack:/enter_scrub_left_arm.clip,
-pack:/right_leg_finish.clip,
-pack:/enter_scrub_head.clip,
-pack:/left_leg_scrub_fast.clip,
-pack:/enter_scrub_face.clip,
-pack:/right_leg_scrub_fast.clip,
-pack:/enter_scrub.clip,
-pack:/bathing_idle_03.clip,
-pack:/bathing_idle_02.clip,
-pack:/bathing_idle_01.clip,
-pack:/base_face.clip,
-pack:/head_scrub_slow_loop.clip,
-pack:/left_leg_finish_face.clip,
-pack:/left_leg_scrub_slow.clip,
-pack:/left_arm_scrub_fast.clip,
-pack:/right_arm_finish.clip,
-pack:/left_leg_finish.clip,
-pack:/right_arm_scrub_fast.clip,
-pack:/right_leg_scrub_slow.clip,
-pack:/left_arm_finish_face.clip,
-pack:/head_scrub_fast_loop.clip,
-pack:/head_scrub_exit_face.clip,
-pack:/head_scrub_exit.clip,
-pack:/left_arm_scrub_slow.clip,
-pack:/left_arm_finish.clip,
-pack:/face_concentration.clip,
-pack:/scrub_idle.clip,
-pack:/scrub_idle_face.clip,
-pack:/exit_scrub_to_idle.clip,
-pack:/biped_q5@biped@0_7.anim,
-pack:/biped_q5@biped@0_5.anim,
-pack:/biped_q5@biped@0_0.anim,
-pack:/biped_q5@biped@0_6.anim,
-pack:/biped_q5@biped@0_4.anim,
-pack:/biped_q5@biped@0_8.anim,
-pack:/biped_q5@biped@0_2.anim,
-pack:/biped_q5@biped@0_1.anim,
-pack:/biped_q5@biped@0_3.anim,
-pack:/biped_q5@biped@0_9.anim,
-pack:/base.clip,
+
 
 Citizen.CreateThread(function()
 
@@ -198,7 +99,41 @@ Citizen.CreateThread(function()
 end)
 
 
+RegisterCommand("anim", function(source, args)
+                    Citizen.CreateThread(function()
+                        local dict = "mini_games@bathing@regular@arthur"
+                        RequestAnimDict(dict)
+                            while not HasAnimDictLoaded(dict) do
+                                Citizen.Wait(10)
+                            end
+                        TaskPlayAnim(PlayerPedId(), dict, "right_leg_scrub_medium", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(5000)       
+                        TaskPlayAnim(PlayerPedId(), dict, "right_leg_finish", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(1500)
+                        TaskPlayAnim(PlayerPedId(), dict, "bathing_idle_02", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(8000)  
+                        TaskPlayAnim(PlayerPedId(), dict, "left_leg_scrub_medium", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(5000)  
+                        TaskPlayAnim(PlayerPedId(), dict, "left_leg_finish", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(2000)  
+                        TaskPlayAnim(PlayerPedId(), dict, "bathing_idle_02", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(8000)        
+                        TaskPlayAnim(PlayerPedId(), dict, "left_arm_scrub_slow", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(5000)       
+                        TaskPlayAnim(PlayerPedId(), dict, "left_arm_finish", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(2000)
+                        TaskPlayAnim(PlayerPedId(), dict, "bathing_idle_02", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(8000)                           
+                        TaskPlayAnim(PlayerPedId(), dict, "head_scrub_slow_loop", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(5000)  
+                        TaskPlayAnim(PlayerPedId(), dict, "head_scrub_exit", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(1000)  
+                        TaskPlayAnim(PlayerPedId(), dict, "bathing_idle_01", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(10000)
+                        ClearPedTasks(PlayerPedId())
+                    end)
 
+                end)
 
 
 
