@@ -96,11 +96,14 @@ Citizen.CreateThread(function()
 
                     DoScreenFadeIn(80)
                     
-                    SetCinematicModeActive(true)
+                    TaskPlayAnim(player, dict, "right_leg_scrub_medium", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(5000)       
+                    TaskPlayAnim(player, dict, "right_leg_finish", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(1500)
 
             end
 
-            if inbath == true then
+            if inbath = true then
                 if IsControlJustPressed(0, keys['E']) then
                     ClearPedTasks(player)
                     inbath = false
