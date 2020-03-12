@@ -76,7 +76,7 @@ Citizen.CreateThread(function()
             if IsControlJustPressed(0, keys['E']) then
                 
                 
-                    SetEntityCoords(player,  -1812.73,-373.21, 166.51, true, true, true, false)
+                    SetEntityCoords(player,  -1812.3,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
                 
 
