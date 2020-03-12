@@ -79,7 +79,7 @@ Citizen.CreateThread(function()
                     DoScreenFadeOut(10)
                     SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
-                    wait(50)
+                    Citizen.Wait(50)
                     DoScreenFadeIn(10)
                     
 
