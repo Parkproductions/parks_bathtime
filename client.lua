@@ -63,6 +63,8 @@ local function DisplayHelp( _message, x, y, w, h, enableShadow, col1, col2, col3
 end
 
 Citizen.CreateThread(function()
+    local player = PlayerPedId()
+    local playerloc = GetEntityCoords(player, 0)
     while true do
  Wait(10)
         local IsZone, IdZone = IsNearZone( Config.Coords )
