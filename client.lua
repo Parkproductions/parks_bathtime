@@ -78,7 +78,7 @@ Citizen.CreateThread(function()
             if IsControlJustPressed(0, keys['E']) then
                     inbath = true
                     print(inbath)
-                    DoScreenFadeOut(2)
+                    DoScreenFadeOut(1000)
                     SetEntityCoords(player,  -1812.2,-373.2, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
                     Citizen.Wait(1000)
