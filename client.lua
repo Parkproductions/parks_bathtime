@@ -91,7 +91,7 @@ Citizen.CreateThread(function()
                             
                             TaskPlayAnim(player, dict, "bathing_idle_01", 1.0, 8.0, -1, 1, 0, false, false, false)
                             
-                            Citizen.Wait(40000)
+                            Citizen.Wait(4000)
                             
                             DoScreenFadeIn(20)
                             
