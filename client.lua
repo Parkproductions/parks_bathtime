@@ -94,6 +94,8 @@ end)
 RegisterCommand("anim", function(source, args)
                     Citizen.CreateThread(function()
                         local player = PlayerPedId()
+                        SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
+                    SetEntityHeading(PlayerPedId(), 92.58)
                         local dict = "mini_games@bathing@regular@arthur"
                         RequestAnimDict(dict)
                             while not HasAnimDictLoaded(dict) do
