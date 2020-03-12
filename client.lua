@@ -74,16 +74,66 @@ Citizen.CreateThread(function()
  
         if IsZone then
             DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
+            
             if IsControlJustPressed(0, keys['E']) then
-                local bath = CreateObject(GetHashKey('P_GRP_W_TRA_WASHTUB01X'), testplayerloc.x, testplayerloc.y, testplayerloc.z, false, false, false, false, false)
-                TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_WASH_FACE_BUCKET_GROUND'), 10000, true, false, false, false)
+                
+                RegisterCommand("bath", function(source, args)
+                    SetEntityCoords(PlayerPedId(),  -1812.73,-374.0, 166.51)
+                    SetEntityHeading(PlayerPedId(), 104.09)
+                end)
+
+                RegisterCommand("anim", function(source, args)
+                    Citizen.CreateThread(function()
+                        local dict = "mini_games@bathing@regular@arthur"
+                        RequestAnimDict(dict)
+                            while not HasAnimDictLoaded(dict) do
+                                Citizen.Wait(10)
+                            end
+                        TaskPlayAnim(PlayerPedId(), dict, "right_leg_scrub_medium", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(5000)       
+                        TaskPlayAnim(PlayerPedId(), dict, "right_leg_finish", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(1500)
+                        TaskPlayAnim(PlayerPedId(), dict, "bathing_idle_02", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(8000)  
+                        TaskPlayAnim(PlayerPedId(), dict, "left_leg_scrub_medium", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(5000)  
+                        TaskPlayAnim(PlayerPedId(), dict, "left_leg_finish", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(2000)  
+                        TaskPlayAnim(PlayerPedId(), dict, "bathing_idle_02", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(8000)        
+                        TaskPlayAnim(PlayerPedId(), dict, "left_arm_scrub_slow", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(5000)       
+                        TaskPlayAnim(PlayerPedId(), dict, "left_arm_finish", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(2000)
+                        TaskPlayAnim(PlayerPedId(), dict, "bathing_idle_02", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(8000)                           
+                        TaskPlayAnim(PlayerPedId(), dict, "head_scrub_slow_loop", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(5000)  
+                        TaskPlayAnim(PlayerPedId(), dict, "head_scrub_exit", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(1000)  
+                        TaskPlayAnim(PlayerPedId(), dict, "bathing_idle_01", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(10000)
+                        ClearPedTasks(PlayerPedId())
+                    end)
+                    
+                end)
+
             end
 
-            if IsControlJustPressed(0, keys['G']) then 
-                DeleteObject(bath)
-            end    
         end
  
     end
  
 end)
+
+
+---------------------------KTOS SCRIPT
+--[[
+TaskGoToCoordAnyMeans(PlayerPedId(),-316.99,761.84, 116.50 ,1.0, 0, 0, 0, 1.0)
+TaskFollowNavMeshToCoord(PlayerPedId(),-316.99,761.84, 116.50 ,1.0, 0, 0, 0, 1.0)--]]
+
+
+
+
+
+
