@@ -76,7 +76,7 @@ Citizen.CreateThread(function()
             if IsControlJustPressed(0, keys['E']) then
                 
                 
-                    SetEntityCoords(player,  -1811.8,-373.21, 166.51, true, true, true, false)
+                    SetEntityCoords(player,  -1812,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
                 
                     local dict = "mini_games@bathing@regular@arthur"
@@ -84,7 +84,7 @@ Citizen.CreateThread(function()
                             while not HasAnimDictLoaded(dict) do
                                 Citizen.Wait(10)
                             end
-                            TaskPlayAnim(PlayerPedId(), dict, "bathing_idle_01", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            TaskPlayAnim(player, dict, "bathing_idle_01", 1.0, 8.0, -1, 1, 0, false, false, false)
                             Citizen.Wait(10000)
 
 
