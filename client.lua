@@ -79,7 +79,7 @@ Citizen.CreateThread(function()
                     inbath = true
                     print(inbath)
                     DoScreenFadeOut(80)
-                    SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
+                    SetEntityCoords(player,  -1812.2,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
                     Citizen.Wait(1000)
                     
@@ -100,6 +100,8 @@ Citizen.CreateThread(function()
                             Citizen.Wait(5000)       
                     TaskPlayAnim(player, dict, "right_leg_finish", 1.0, 8.0, -1, 1, 0, false, false, false)
                             Citizen.Wait(1500)
+                    TaskPlayAnim(player, dict, "bathing_idle_02", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(8000)  
 
             end
 
