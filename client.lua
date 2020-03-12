@@ -79,7 +79,7 @@ Citizen.CreateThread(function()
                     DoScreenFadeOut(20)
                     SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
-                    Citizen.Wait(1000)
+                    
                     
 
                      local dict = "mini_games@bathing@regular@arthur"
@@ -89,6 +89,7 @@ Citizen.CreateThread(function()
                                 Citizen.Wait(0)
                             end
                             TaskPlayAnim(player, dict, "bathing_idle_01", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(1000)
                             DoScreenFadeIn(20)
                             Citizen.Wait(10000)
                             ClearPedTasks(player)
