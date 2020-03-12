@@ -77,7 +77,7 @@ Citizen.CreateThread(function()
             
             if IsControlJustPressed(0, keys['E']) then
                     inbath = true
-                    DoScreenFadeOut(20)
+                    DoScreenFadeOut(30)
                     SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
                     Citizen.Wait(1000)
@@ -93,7 +93,7 @@ Citizen.CreateThread(function()
                             Citizen.Wait(2000)
                             
 
-                    DoScreenFadeIn(20)
+                    DoScreenFadeIn(30)
                     
                     SetCinematicModeActive(true)
 
