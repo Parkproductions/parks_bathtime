@@ -99,6 +99,7 @@ RegisterCommand("anim", function(source, args)
                         local dict = "mini_games@bathing@regular@arthur"
                         RequestAnimDict(dict)
                             while not HasAnimDictLoaded(dict) do
+                                print('failed')
                                 Citizen.Wait(10)
                             end
                         TaskPlayAnim(player, dict, "right_leg_scrub_medium", 1.0, 8.0, -1, 1, 0, false, false, false)
