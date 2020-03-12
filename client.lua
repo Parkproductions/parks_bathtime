@@ -80,14 +80,6 @@ Citizen.CreateThread(function()
                 
                     SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
-                
-                    local dict = "mini_games@bathing@regular@arthur"
-                        RequestAnimDict(dict)
-                            while not HasAnimDictLoaded(dict) do
-                                Citizen.Wait(10)
-                            end
-                            TaskPlayAnim(player, dict, "bathing_idle_01", 1.0, 8.0, -1, 1, 0, false, false, false)
-                            Citizen.Wait(10000)
 
 
             end
