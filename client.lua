@@ -75,10 +75,10 @@ Citizen.CreateThread(function()
             
             if IsControlJustPressed(0, keys['E']) then
                 
-                RegisterCommand("bath", function(source, args)
+                
                     SetEntityCoords(player,  -1812.73,-374.0, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
-                end)
+                
 
 
 
