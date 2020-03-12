@@ -29,10 +29,6 @@ local function IsNearZone ( location )
     local playerloc = GetEntityCoords(player, 0)
     local Bath_ID = GetClosestObjectOfType(playerloc.x, playerloc.y, playerloc.z, 1.0, GetHashKey("P_GRP_W_TRA_WASHTUB01X"), true) --[[print(Bath_ID)--]]
 
-    if IsControlJustPressed(0, keys['E']) then
-                CREATE_OBJECT(GetHashKey('P_GRP_W_TRA_WASHTUB01X'), playerloc.x, playloc.y, playerloc.z, false, false, false, false, false)
-                TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_WASH_FACE_BUCKET_GROUND'), 10000, true, false, false, false)
-            end
 
     for i = 1, #location do
         if #(playerloc - location[i]) < 1.0 then
@@ -75,10 +71,10 @@ Citizen.CreateThread(function()
  
         if IsZone then
             DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
-            --[[if IsControlJustPressed(0, keys['E']) then
-                CREATE_OBJECT(GetHashKey('P_GRP_W_TRA_WASHTUB01X'), playerloc.x, playloc.y, playerloc.z, false, false, false, false, false)
+            if IsControlJustPressed(0, keys['E']) then
+                CREATE_OBJECT(GetHashKey('P_GRP_W_TRA_WASHTUB01X'), playerloc.x, playerloc.y, playerloc.z, false, false, false, false, false)
                 TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_WASH_FACE_BUCKET_GROUND'), 10000, true, false, false, false)
-            end--]]
+            end
 
         end
  
