@@ -27,6 +27,7 @@ local function IsNearZone ( location )
 
     local player = PlayerPedId()
     local playerloc = GetEntityCoords(player, 0)
+    local Bath_ID = GetClosestObjectOfType(playerloc.x, playerloc.y, playerloc.z, 1.0, GetHashKey("P_BATH03X"), true) print(Bath_ID)
 
     for i = 1, #location do
         if #(playerloc - location[i]) < 1.0 then
@@ -36,7 +37,7 @@ local function IsNearZone ( location )
 
 end
 
-local Bath_ID = GetClosestObjectOfType(player.x, player.y, player.z, 1.0, GetHashKey("P_BATH03X"), true) print(Bath_ID)
+
 
 local function DisplayHelp( _message, x, y, w, h, enableShadow, col1, col2, col3, a, centre )
 
