@@ -76,8 +76,9 @@ Citizen.CreateThread(function()
             DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
             
             if IsControlJustPressed(0, keys['E']) then
-                    DoScreenFadeOut(10)
-                
+                    DoScreenFadeOut(1000)
+                    SetCinematicModeActive(true)
+                    DoScreenFadeIn(1000)
                     SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
 
@@ -100,7 +101,7 @@ RegisterCommand("anim", function(source, args)
                         RequestAnimDict(dict)
                             while not HasAnimDictLoaded(dict) do
                                 print('failed')
-                                Citizen.Wait(10)
+                                Citizen.Wait(0)
                             end
                         TaskPlayAnim(player, dict, "right_leg_scrub_medium", 1.0, 8.0, -1, 1, 0, false, false, false)
                             Citizen.Wait(5000)       
