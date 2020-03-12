@@ -1,12 +1,10 @@
 local blips = {
 	{ name = 'Bath Tub', sprite = 662885764, x=-1812.73, y=-374.0, z=166.51 },
 }
-
 local keys = { ['G'] = 0x760A9C6F, ['S'] = 0xD27782E3, ['W'] = 0x8FD015D8, ['H'] = 0x24978A28, ['G'] = 0x5415BE48, ["ENTER"] = 0xC7B5340A, ['E'] = 0xDFF812F9 }
-
 local pressTime = 0
 local pressLeft = 0
-
+local Bath_ID = GetClosestObjectOfType(pPos.x, pPos.y, pPos.z, 1.0, GetHashKey("P_BATH02BX"), true) print(Bath_ID)
  
 Citizen.CreateThread(function()
 	for _, info in pairs(blips) do
