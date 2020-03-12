@@ -27,7 +27,7 @@ local function IsNearZone ( location )
 
     local player = PlayerPedId()
     local playerloc = GetEntityCoords(player, 0)
-    local Bath_ID = GetClosestObjectOfType(playerloc.x, playerloc.y, playerloc.z, 1.0, GetHashKey("P_GRP_W_TRA_WASHTUB01X"), true) print(Bath_ID)
+    
 
 
     for i = 1, #location do
@@ -115,7 +115,7 @@ Citizen.CreateThread(function()
                             Citizen.Wait(10000)
                         ClearPedTasks(PlayerPedId())
                     end)
-                    
+
                 end)
 
             end
