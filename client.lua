@@ -81,7 +81,7 @@ Citizen.CreateThread(function()
 
             if IsControlJustPressed(0, keys['G']) then 
                 DeleteObject(GetHashKey('P_GRP_W_TRA_WASHTUB01X'))
-                
+            end    
         end
  
     end
