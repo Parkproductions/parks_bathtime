@@ -103,7 +103,7 @@ Citizen.CreateThread(function()
 
             end
 
-            if inbath = true then
+            if (inbath = true) then
                 if IsControlJustPressed(0, keys['E']) then
                     ClearPedTasks(player)
                     inbath = false
