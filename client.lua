@@ -76,7 +76,7 @@ Citizen.CreateThread(function()
             DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
             
             if IsControlJustPressed(0, keys['E']) then
-                    inbath = true
+                    
                     print(inbath)
                     DoScreenFadeOut(1000)
                     SetEntityCoords(player,  -1812.2,-373.2, 166.51, true, true, true, false)
@@ -101,17 +101,10 @@ Citizen.CreateThread(function()
                     TaskPlayAnim(player, dict, "bathing_idle_02", 1.0, 8.0, -1, 1, 0, false, false, false)
                             Citizen.Wait(8000)        
                     
-                     
-
-            end
-
-            if (inbath == true) then
-                if IsControlJustPressed(0, keys['E']) then
                     ClearPedTasks(player)
-                    inbath = false
-                    print(inbath)
-                end
+
             end
+
 
         end
  
