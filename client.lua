@@ -107,7 +107,7 @@ Citizen.CreateThread(function()
                     ClearPedTasks(player)
                     SetEntityCoords(player,  -1816.85,-371.92, 166.5, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 87.66)
-                    Citizen.Wait(500)
+                    Citizen.Wait(1000)
                     DoScreenFadeIn(300)
 
             end
