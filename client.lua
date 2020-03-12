@@ -97,13 +97,13 @@ Citizen.CreateThread(function()
                     
                     SetCinematicModeActive(true)
 
-                    if inbath == true then
-                        if IsControlJustPressed(0, keys['E']) then
-                            ClearPedTasks(player)
-                            inbath = false
-                        end
-                    end
+            end
 
+            if inbath == true then
+                if IsControlJustPressed(0, keys['E']) then
+                    ClearPedTasks(player)
+                    inbath = false
+                end
             end
 
         end
