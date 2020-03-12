@@ -65,6 +65,9 @@ end
 
 Citizen.CreateThread(function()
 
+    local testplayer = PlayerPedId()
+    local testplayerloc = GetEntityCoords(testplayer, 0)
+
     while true do
  Wait(10)
         local IsZone, IdZone = IsNearZone( Config.Coords )
@@ -72,7 +75,7 @@ Citizen.CreateThread(function()
         if IsZone then
             DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
             if IsControlJustPressed(0, keys['E']) then
-                CREATE_OBJECT(GetHashKey('P_GRP_W_TRA_WASHTUB01X'), playerloc.x, playerloc.y, playerloc.z, false, false, false, false, false)
+                CREATE_OBJECT(GetHashKey('P_GRP_W_TRA_WASHTUB01X'), testplayerloc.x, testplayerloc.y, testplayerlocc.z, false, false, false, false, false)
                 TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_WASH_FACE_BUCKET_GROUND'), 10000, true, false, false, false)
             end
 
