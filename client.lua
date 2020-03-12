@@ -78,7 +78,7 @@ Citizen.CreateThread(function()
             if IsControlJustPressed(0, keys['E']) then
                     
                     print(inbath)
-                    DoScreenFadeOut(1000)
+                    DoScreenFadeOut(500)
                     SetEntityCoords(player,  -1812.2,-373.2, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
                     Citizen.Wait(1000)
@@ -94,7 +94,7 @@ Citizen.CreateThread(function()
                             Citizen.Wait(1000)
                             
 
-                    DoScreenFadeIn(80)
+                    DoScreenFadeIn(500)
                     
                     TaskPlayAnim(player, dict, "right_leg_scrub_medium", 1.0, 8.0, -1, 1, 0, false, false, false)
                             Citizen.Wait(5000)
