@@ -76,12 +76,22 @@ Citizen.CreateThread(function()
             DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
             
             if IsControlJustPressed(0, keys['E']) then
-                    DoScreenFadeOut(10)
+                    DoScreenFadeOut(20)
                     SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
                     Citizen.Wait(1000)
                     DoScreenFadeIn(10)
                     SetCinematicModeActive(true)
+
+                     local dict = "mini_games@bathing@regular@arthur"
+                        RequestAnimDict(dict)
+                            while not HasAnimDictLoaded(dict) do
+                                print('failed')
+                                Citizen.Wait(0)
+                            end
+                            TaskPlayAnim(player, dict, "bathing_idle_01", 1.0, 8.0, -1, 1, 0, false, false, false)
+                            Citizen.Wait(10000)
+                            ClearPedTasks(player)
 
 
             end
