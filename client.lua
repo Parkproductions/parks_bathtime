@@ -4,7 +4,8 @@ local blips = {
 local keys = { ['G'] = 0x760A9C6F, ['S'] = 0xD27782E3, ['W'] = 0x8FD015D8, ['H'] = 0x24978A28, ['G'] = 0x5415BE48, ["ENTER"] = 0xC7B5340A, ['E'] = 0xDFF812F9 }
 local pressTime = 0
 local pressLeft = 0
-
+local player = PlayerPedId()
+local playerloc = GetEntityCoords(player, 0)
  
 Citizen.CreateThread(function()
 	for _, info in pairs(blips) do
@@ -25,8 +26,7 @@ end
 
 local function IsNearZone ( location )
 
-    local player = PlayerPedId()
-    local playerloc = GetEntityCoords(player, 0)
+
     local Bath_ID = GetClosestObjectOfType(playerloc.x, playerloc.y, playerloc.z, 1.0, GetHashKey("P_GRP_W_TRA_WASHTUB01X"), true) --[[print(Bath_ID)--]]
 
     for i = 1, #location do
@@ -63,8 +63,7 @@ local function DisplayHelp( _message, x, y, w, h, enableShadow, col1, col2, col3
 end
 
 Citizen.CreateThread(function()
-    local player = PlayerPedId()
-    local playerloc = GetEntityCoords(player, 0)
+
     while true do
  Wait(10)
         local IsZone, IdZone = IsNearZone( Config.Coords )
