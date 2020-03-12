@@ -76,11 +76,11 @@ Citizen.CreateThread(function()
             DisplayHelp(Config.bathtext, 0.50, 0.95, 0.6, 0.6, true, 255, 255, 255, 255, true, 10000)
             
             if IsControlJustPressed(0, keys['E']) then
-                    DoScreenFadeOut(1000)
+                    DoScreenFadeOut(100)
                     SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
                     
-                    DoScreenFadeIn(1000)
+                    DoScreenFadeIn(100)
                     
 
 
