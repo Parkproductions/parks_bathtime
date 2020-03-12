@@ -77,10 +77,11 @@ Citizen.CreateThread(function()
             
             if IsControlJustPressed(0, keys['E']) then
                     DoScreenFadeOut(1000)
-                    SetCinematicModeActive(true)
-                    DoScreenFadeIn(1000)
                     SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
+                    
+                    DoScreenFadeIn(1000)
+                    
 
 
             end
