@@ -80,8 +80,7 @@ Citizen.CreateThread(function()
                     SetEntityCoords(player,  -1812.1,-373.21, 166.51, true, true, true, false)
                     SetEntityHeading(PlayerPedId(), 92.58)
                     Citizen.Wait(1000)
-                    DoScreenFadeIn(10)
-                    SetCinematicModeActive(true)
+                    
 
                      local dict = "mini_games@bathing@regular@arthur"
                         RequestAnimDict(dict)
@@ -93,6 +92,8 @@ Citizen.CreateThread(function()
                             Citizen.Wait(10000)
                             ClearPedTasks(player)
 
+                    DoScreenFadeIn(20)
+                    SetCinematicModeActive(true)
 
             end
 
